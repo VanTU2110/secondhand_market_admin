@@ -1,0 +1,172 @@
+/* ProductManagementPage.css */
+.product-management {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.product-management h2 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Loading Spinner */
+.loading {
+  font-size: 18px;
+  text-align: center;
+  color: #007BFF;
+}
+
+/* Add Product Form */
+.add-product {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-product input, 
+.add-product select, 
+.add-product button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.add-product input[type="text"],
+.add-product input[type="number"],
+.add-product select {
+  flex: 1;
+}
+
+.add-product button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-product button:hover {
+  background-color: #218838;
+}
+
+/* Product List */
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.product-item {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+.product-info h3 {
+  font-size: 20px;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.product-info p {
+  font-size: 16px;
+  color: #666;
+  margin: 4px 0;
+}
+
+/* Product Images */
+.product-images {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.product-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  transition: transform 0.3s ease;
+}
+
+.product-img:hover {
+  transform: scale(1.1);
+}
+
+
+/* Product Actions */
+.product-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.product-actions button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-actions button:nth-child(1) {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.product-actions button:nth-child(1):hover {
+  background-color: #e0a800;
+}
+
+.product-actions button:nth-child(2) {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.product-actions button:nth-child(2):hover {
+  background-color: #c82333;
+}
+.product-img-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.product-img-preview img {
+  width: 100px; /* Đặt chiều rộng hình ảnh */
+  height: 100px; /* Đặt chiều cao hình ảnh */
+  object-fit: cover; /* Đảm bảo hình ảnh không bị biến dạng */
+  border-radius: 8px; /* Làm mềm các góc hình ảnh */
+  border: 2px solid #ddd; /* Đặt đường viền nhẹ cho hình ảnh */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng cho hình ảnh */
+  transition: transform 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+.product-img-preview img:hover {
+  transform: scale(1.1); /* Phóng to hình ảnh khi hover */
+}

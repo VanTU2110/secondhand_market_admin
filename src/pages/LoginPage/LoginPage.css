@@ -1,0 +1,97 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.login-content {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  max-width: 900px;
+  width: 100%;
+}
+
+.login-image {
+  flex: 1;
+  background-image: url('D:\DoAn4\product-management\src\assets\logo.png');
+  background-size: cover;
+  min-height: 400 px;
+  position: relative;
+}
+
+.login-form {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-form button:hover {
+  background-color: #45a049;
+}
+
+.register-link {
+  margin-top: 20px;
+}
+
+.register-link p {
+  margin: 0;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.image-text {
+  position: absolute;
+   white-space: nowrap; 
+  bottom: 10px; /* Đặt dòng chữ cách dưới cùng 10px */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  color: black; /* Đổi màu chữ để tương phản với ảnh */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Thêm đổ bóng để dễ đọc hơn */
+}

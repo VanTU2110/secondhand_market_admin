@@ -1,0 +1,25 @@
+/* DashboardLayout.css */
+
+.dashboard-layout {
+  display: flex; /* Sử dụng flexbox để sắp xếp sidebar và nội dung chính */
+}
+
+.content {
+  flex: 1; /* Chiếm không gian còn lại */
+  padding: 20px; /* Khoảng cách cho nội dung */
+  background-color: #ecf0f1; /* Màu nền cho nội dung */
+  height: 100vh; /* Chiều cao bằng chiều cao viewport */
+  overflow-y: auto; /* Cuộn dọc nếu nội dung quá dài */
+}
+
+/* Optional: Có thể thêm một số hiệu ứng cho nội dung chính */
+.content h1 {
+  font-size: 28px; /* Kích thước chữ cho tiêu đề */
+  margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+}
+
+.content p {
+  line-height: 1.6; /* Khoảng cách giữa các dòng */
+  font-size: 16px; /* Kích thước chữ cho đoạn văn */
+  color: #2c3e50; 
+}

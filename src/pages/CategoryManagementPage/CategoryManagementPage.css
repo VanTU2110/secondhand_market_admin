@@ -1,0 +1,141 @@
+/* CategoryManagementPage.css */
+
+.category-management {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.category-management h2 {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.add-category {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.add-category input {
+  width: 70%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.add-category input:focus {
+  border-color: #66b3ff;
+  box-shadow: 0 0 8px rgba(102, 179, 255, 0.3);
+  outline: none;
+}
+
+.add-category button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: max-content;
+}
+
+.add-category button:hover {
+  background-color: #218838;
+}
+
+.edit-category {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.edit-category input {
+  width: 70%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.edit-category button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #ffc107;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-category button:hover {
+  background-color: #e0a800;
+}
+
+.edit-category button:nth-child(3) {
+  background-color: #dc3545;
+}
+
+.edit-category button:nth-child(3):hover {
+  background-color: #c82333;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+}
+
+.category-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.category-list li:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-list button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-list button:hover {
+  background-color: #0056b3;
+}
+
+.category-list button:nth-child(2) {
+  background-color: #ffc107;
+}
+
+.category-list button:nth-child(2):hover {
+  background-color: #e0a800;
+}
+
+.category-list button:nth-child(3) {
+  background-color: #dc3545;
+}
+
+.category-list button:nth-child(3):hover {
+  background-color: #c82333;
+}

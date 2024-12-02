@@ -1,0 +1,98 @@
+.register-container {
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  height: 100vh; /* Chiều cao của container */
+  background-color: #f4f4f4; /* Màu nền nhẹ nhàng */
+  padding: 20px; /* Thêm khoảng cách xung quanh */
+}
+
+.register-content {
+  display: flex; /* Để chứa cả ảnh và form */
+  flex-direction: row; /* Để ảnh và form nằm ngang */
+  width: 100%; /* Đảm bảo chiều rộng tối đa */
+  max-width: 800px; /* Giới hạn chiều rộng */
+  border-radius: 8px; /* Bo góc */
+  overflow: hidden; /* Ẩn phần thừa */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho card */
+  background-color: white; /* Màu nền cho content */
+}
+
+.register-image {
+  flex: 1; /* Ảnh chiếm 50% chiều rộng */
+  background-image: url('D:\\DoAn4\\product-management\\src\\assets\\logo.png');
+  background-size: cover;
+  min-height: 400px; /* Chiều cao tối thiểu */
+  display: flex; /* Để chứa văn bản */
+  flex-direction: column; /* Để căn chỉnh văn bản theo chiều dọc */
+  justify-content: flex-end; /* Đưa văn bản xuống dưới */
+  padding: 20px; /* Thêm khoảng cách cho văn bản */
+  color: white; /* Màu chữ */
+  text-align: center; /* Căn giữa chữ */
+  position: relative; /* Để văn bản không bị che khuất */
+}
+
+.register-image .image-text {
+  margin-top: 10px; /* Khoảng cách giữa ảnh và văn bản */
+  font-size: 24px; /* Kích thước chữ */
+  font-weight: bold; /* Đậm chữ */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Đổ bóng cho chữ */
+}
+
+.register-form {
+  flex: 1; /* Form chiếm 50% chiều rộng */
+  display: flex;
+  flex-direction: column; /* Để các trường nằm dọc */
+  justify-content: center; /* Căn giữa theo chiều dọc */
+  padding: 40px; /* Thêm khoảng cách cho form */
+}
+
+.register-form h2 {
+  margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+  text-align: center; /* Căn giữa tiêu đề */
+}
+
+.register-form input {
+  padding: 10px; /* Khoảng cách bên trong */
+  margin-bottom: 15px; /* Khoảng cách giữa các trường */
+  border: 1px solid #ccc; /* Viền nhẹ cho input */
+  border-radius: 4px; /* Bo góc cho input */
+  font-size: 16px; /* Kích thước chữ */
+  transition: border-color 0.3s; /* Hiệu ứng chuyển đổi cho viền */
+}
+
+.register-form input:focus {
+  border-color: #007bff; /* Đổi màu viền khi input được chọn */
+  outline: none; /* Ẩn đường viền mặc định */
+}
+
+.register-form button {
+  padding: 10px; /* Khoảng cách bên trong */
+  border: none; /* Không viền */
+  border-radius: 4px; /* Bo góc cho nút */
+  background-color: #007bff; /* Màu nền cho nút */
+  color: white; /* Màu chữ */
+  font-size: 16px; /* Kích thước chữ */
+  cursor: pointer; /* Con trỏ khi di chuột qua nút */
+  transition: background-color 0.3s; /* Hiệu ứng chuyển đổi cho màu nền */
+}
+
+.register-form button:hover {
+  background-color: #0056b3; /* Đổi màu nền khi di chuột qua */
+}
+
+.error-message,
+.success-message {
+  text-align: center; /* Căn giữa thông báo */
+  margin: 10px 0; /* Khoảng cách giữa thông báo và các trường khác */
+  color: #d9534f; /* Màu cho thông báo lỗi */
+}
+
+.success-message {
+  color: #5cb85c; /* Màu cho thông báo thành công */
+}
+
+.login-link {
+  text-align: center; /* Căn giữa liên kết đăng nhập */
+  margin-top: 20px; /* Khoảng cách trên */
+}
