@@ -14,6 +14,9 @@ const Sidebar = () => {
           <Link to="/dashboard"><FaHome /> Dashboard</Link>
         </li>
         <li>
+        <Link to="/static"><FaHome /> Thống kê</Link>
+        </li>
+        <li>
           <Link to="/product"><FaBox /> Sản phẩm</Link>
         </li>
         <li>
@@ -23,7 +26,7 @@ const Sidebar = () => {
           <Link to="/order"><FaClipboardList /> Đơn hàng</Link>
         </li>
         <li>
-          <Link to="/customers"><FaUser /> Khách hàng</Link>
+          <Link to="/chat"><FaUser /> Chat</Link>
         </li>
         <li>
           <Link to="/login" className="logout-link"><FaSignOutAlt /> Đăng xuất</Link>

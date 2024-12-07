@@ -33,8 +33,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.add-product input, 
-.add-product select, 
+.add-product input,
+.add-product select,
 .add-product button {
   padding: 10px;
   font-size: 16px;
@@ -150,23 +150,48 @@
 .product-actions button:nth-child(2):hover {
   background-color: #c82333;
 }
-.product-img-preview {
+
+/* Phần tìm kiếm */
+.search-product {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.product-img-preview img {
-  width: 100px; /* Đặt chiều rộng hình ảnh */
-  height: 100px; /* Đặt chiều cao hình ảnh */
-  object-fit: cover; /* Đảm bảo hình ảnh không bị biến dạng */
-  border-radius: 8px; /* Làm mềm các góc hình ảnh */
-  border: 2px solid #ddd; /* Đặt đường viền nhẹ cho hình ảnh */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng cho hình ảnh */
-  transition: transform 0.3s ease; /* Hiệu ứng khi hover */
+.search-product input,
+.search-product button {
+  height: 40px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.product-img-preview img:hover {
-  transform: scale(1.1); /* Phóng to hình ảnh khi hover */
+.search-product input {
+  flex: 1;
+  max-width: 200px;
+}
+
+.search-product button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.search-product button:hover {
+  background-color: #45a049;
+}
+
+/* Preview hình ảnh */
+.product-img-preview {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-right: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }

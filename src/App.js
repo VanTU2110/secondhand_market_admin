@@ -10,6 +10,8 @@ import DashboardPage from './components/Dashboard/DashboardLayout';
 import ProductPage from './pages/ProductManagementPage/ProductManagementPage';
 import CategoryPage from './pages/CategoryManagementPage/CategoryManagementPage';
 import OrderManagementPage from './pages/OrderManagementPage/OrderManagementPage';
+import StatisticsPage from './pages/DashBoard/StatisticsPage';
+
 const PrivateRoute = ({ element: Component }) => {
   const isAuthenticated = !!localStorage.getItem('token'); // Kiểm tra nếu có token trong localStorage
   return isAuthenticated ? <Component /> : <Navigate to="/login" />;
@@ -28,6 +30,7 @@ function App() {
         
         {/* Các route yêu cầu đăng nhập */}
         <Route path="/dashboard" element={<PrivateRoute element={DashboardPage} />} />
+        <Route path="/static" element={<PrivateRoute element={StatisticsPage} />} />
         <Route path="/product" element={<PrivateRoute element={ProductPage} />} />
         <Route path="/category" element={<PrivateRoute element={CategoryPage} />} />
         <Route path="/order" element={<PrivateRoute element={OrderManagementPage} />} />

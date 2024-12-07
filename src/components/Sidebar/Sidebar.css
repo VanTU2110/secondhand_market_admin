@@ -1,7 +1,6 @@
-/* Sidebar.css */
 
 .sidebar {
-  width: 250px; /* Độ rộng của sidebar */
+  width: 150px; /* Độ rộng của sidebar */
   background-color: #2c3e50; /* Màu nền */
   color: #ecf0f1; /* Màu chữ */
   height: 100vh; /* Chiều cao bằng chiều cao viewport */
@@ -10,9 +9,9 @@
   padding: 20px; /* Khoảng cách nội dung */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Đổ bóng cho sidebar */
   position: fixed; /* Cố định sidebar */
-  left: 0; /* Đặt sidebar ở bên trái */
-  top: 0; /* Đặt ở trên cùng */
-  z-index: 1000; /* Đảm bảo sidebar nằm trên các phần tử khác */
+  left: 0; 
+  top: 0; 
+  z-index: 1000;
 }
 
 .sidebar-header {

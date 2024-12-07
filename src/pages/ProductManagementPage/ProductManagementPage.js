@@ -3,7 +3,7 @@ import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import DashboardLayout from '../../components/Dashboard/DashboardLayout'; 
+import DashboardLayout from '../../components/Dashboard/DashboardLayout';
 import './ProductManagementPage.css';
 
 const ProductManagementPage = () => {
@@ -11,7 +11,11 @@ const ProductManagementPage = () => {
   const [categories, setCategories] = useState([]);
   const [shopId, setShopId] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const [searchQuery, setSearchQuery] = useState({
+    title: '',
+    minPrice: '',
+    maxPrice: '',
+  });
   const [newProduct, setNewProduct] = useState({
     title: '',
     description: '',
@@ -45,10 +49,10 @@ const ProductManagementPage = () => {
 
       // Gọi API để lấy danh mục sản phẩm
       axios.get('http://localhost:5000/api/categories/getAll') // Thay đổi URL cho API danh mục
-      .then(response => {
-        console.log("Dữ liệu API trả về:", response.data); // In ra dữ liệu trả về từ API
-        setCategories(response.data);
-      })
+        .then(response => {
+          console.log("Dữ liệu API trả về:", response.data); // In ra dữ liệu trả về từ API
+          setCategories(response.data);
+        })
         .catch(error => {
           console.error(error);
           toast.error("Không thể lấy danh sách danh mục");
@@ -66,8 +70,30 @@ const ProductManagementPage = () => {
 
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
-    const imageUrls = files.map(file => URL.createObjectURL(file));   
+    const imageUrls = files.map(file => URL.createObjectURL(file));
     setNewProduct(prev => ({ ...prev, img_url: files, previewUrls: imageUrls }));
+  };
+  const handleSearchChange = (e) => {
+    const { name, value } = e.target;
+    setSearchQuery((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const searchProducts = () => {
+    setLoading(true);
+    const { title, minPrice, maxPrice } = searchQuery;
+    axios
+      .get('http://localhost:5000/api/products/search', {
+        params: { title, minPrice, maxPrice },
+      })
+      .then((response) => {
+        setProducts(response.data);
+        toast.success('Tìm kiếm sản phẩm thành công!');
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error('Tìm kiếm sản phẩm thất bại!');
+      })
+      .finally(() => setLoading(false));
   };
 
   const addProduct = async () => {
@@ -121,6 +147,7 @@ const ProductManagementPage = () => {
   };
 
   const startEditing = (product) => {
+    window.scrollTo(0, 0);
     setEditingProduct(product);
     setNewProduct({
       title: product.title,
@@ -130,7 +157,7 @@ const ProductManagementPage = () => {
       condition: product.condition,
       category_id: product.category_id,
       img_url: [],
-      oldImages: product.img_url 
+      oldImages: product.img_url
     });
   };
 
@@ -148,8 +175,8 @@ const ProductManagementPage = () => {
       img_url: imageUrls, // Sử dụng hình ảnh mới hoặc cũ
       category_id: newProduct.category_id // Cập nhật category_id
     };
-  
-    
+
+
     try {
       const response = await axios.put(`http://localhost:5000/api/products/updateProductbyId/${editingProduct._id}`, productData);
       setProducts(products.map(prod => (prod._id === editingProduct._id ? response.data : prod)));
@@ -243,19 +270,49 @@ const ProductManagementPage = () => {
               </option>
             ))}
           </select>
-          <input
-  type="file"
-  multiple
-  onChange={handleFileChange}
-/>
-{newProduct.previewUrls && newProduct.previewUrls.map((url, index) => (
-  <img key={index} src={url} alt={`Preview ${index}`} className="product-img-preview" />
-))}
+          <input type="file" multiple onChange={handleFileChange} />
+          <div className="image-preview-container">
+            {newProduct.previewUrls &&
+              newProduct.previewUrls.map((url, index) => (
+                <img
+                  key={index}
+                  src={url}
+                  alt={`Preview ${index}`}
+                  className="product-img-preview"
+                />
+              ))}
+          </div>
+
           {editingProduct ? (
             <button onClick={updateProduct}>Cập nhật sản phẩm</button>
           ) : (
             <button onClick={addProduct}>Thêm sản phẩm</button>
           )}
+        </div>
+        <div className="search-product">
+          <h3>Tìm kiếm sản phẩm</h3>
+          <input
+            type="text"
+            name="title"
+            placeholder="Tên sản phẩm"
+            value={searchQuery.title}
+            onChange={handleSearchChange}
+          />
+          <input
+            type="number"
+            name="minPrice"
+            placeholder="Giá tối thiểu"
+            value={searchQuery.minPrice}
+            onChange={handleSearchChange}
+          />
+          <input
+            type="number"
+            name="maxPrice"
+            placeholder="Giá tối đa"
+            value={searchQuery.maxPrice}
+            onChange={handleSearchChange}
+          />
+          <button onClick={searchProducts}>Tìm kiếm</button>
         </div>
 
         <ul className="product-list">
@@ -264,9 +321,9 @@ const ProductManagementPage = () => {
           ) : (
             products.map(product => {
               // console.log("category của sản phẩm:", product.category_id);
-              const category = product.category_id && product.category_id._id 
-              ? categories.find(cat => cat._id === product.category_id._id)
-             : null;
+              const category = product.category_id && product.category_id._id
+                ? categories.find(cat => cat._id === product.category_id._id)
+                : null;
               // console.log("category_id của sản phẩm:", product.category_id._id); // In ra category_id của sản phẩm
               // console.log("category tìm được:", category); // In ra category (object tìm được theo category_id)
 
