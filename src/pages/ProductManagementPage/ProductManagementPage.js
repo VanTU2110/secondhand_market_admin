@@ -74,27 +74,49 @@ const ProductManagementPage = () => {
     setNewProduct(prev => ({ ...prev, img_url: files, previewUrls: imageUrls }));
   };
   const handleSearchChange = (e) => {
-    const { name, value } = e.target;
-    setSearchQuery((prev) => ({ ...prev, [name]: value }));
-  };
+    const { name, value, type, checked } = e.target;
 
+    if (type === "checkbox") {
+      // Xử lý cho checkbox, thay đổi giá trị của minPrice hoặc maxPrice
+      setSearchQuery((prev) => ({
+        ...prev,
+        [name]: checked ? value : 0, // Nếu chọn checkbox thì gán giá trị, nếu bỏ chọn thì gán 0
+      }));
+    } else {
+      // Xử lý cho input text (như tên sản phẩm)
+      setSearchQuery((prev) => ({
+        ...prev,
+        [name]: value, // Cập nhật giá trị input cho title
+      }));
+    }
+  };
   const searchProducts = () => {
     setLoading(true);
-    const { title, minPrice, maxPrice } = searchQuery;
+    const { priceRange, title } = searchQuery;
+
+    let minPrice = "";
+    let maxPrice = "";
+    if (priceRange) {
+      const [min, max] = priceRange.split("-");
+      minPrice = min;
+      maxPrice = max || ""; // Nếu không có max, nghĩa là giá trị là "Trên 1,000,000 đ"
+    }
+
     axios
-      .get('http://localhost:5000/api/products/search', {
+      .get("http://localhost:5000/api/products/search", {
         params: { title, minPrice, maxPrice },
       })
       .then((response) => {
         setProducts(response.data);
-        toast.success('Tìm kiếm sản phẩm thành công!');
+        toast.success("Tìm kiếm sản phẩm thành công!");
       })
       .catch((error) => {
         console.error(error);
-        toast.error('Tìm kiếm sản phẩm thất bại!');
+        toast.error("Tìm kiếm sản phẩm thất bại!");
       })
       .finally(() => setLoading(false));
   };
+
 
   const addProduct = async () => {
     setLoading(true);
@@ -291,27 +313,63 @@ const ProductManagementPage = () => {
         </div>
         <div className="search-product">
           <h3>Tìm kiếm sản phẩm</h3>
-          <input
-            type="text"
-            name="title"
-            placeholder="Tên sản phẩm"
-            value={searchQuery.title}
-            onChange={handleSearchChange}
-          />
-          <input
-            type="number"
-            name="minPrice"
-            placeholder="Giá tối thiểu"
-            value={searchQuery.minPrice}
-            onChange={handleSearchChange}
-          />
-          <input
-            type="number"
-            name="maxPrice"
-            placeholder="Giá tối đa"
-            value={searchQuery.maxPrice}
-            onChange={handleSearchChange}
-          />
+          
+          <div className="price-range">
+            <h3>Khoảng giá</h3>
+            <div class="checkbox-group">
+            <label>
+              <input
+                type="checkbox"
+                name="priceRange"
+                value="0-100000"
+                checked={searchQuery.priceRange === "0-100000"}
+                onChange={handleSearchChange}
+              />
+              0 - 100,000 đ
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="priceRange"
+                value="100001-500000"
+                checked={searchQuery.priceRange === "100001-500000"}
+                onChange={handleSearchChange}
+              />
+              100,001 - 500,000 đ
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="priceRange"
+                value="500001-1000000"
+                checked={searchQuery.priceRange === "500001-1000000"}
+                onChange={handleSearchChange}
+              />
+              500,001 - 1,000,000 đ
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="priceRange"
+                value="1000001"
+                checked={searchQuery.priceRange === "1000001"}
+                onChange={handleSearchChange}
+              />
+              Trên 1,000,000 đ
+            </label>
+          </div>
+          </div>
+          <div class="product-name">
+  <label for="title">Tên sản phẩm:</label>
+  <input
+    type="text"
+    id="title"
+    name="title"
+    placeholder="Tên sản phẩm"
+    value={searchQuery.title}
+    onChange={handleSearchChange}
+  />
+</div>
           <button onClick={searchProducts}>Tìm kiếm</button>
         </div>
 
