@@ -2,14 +2,16 @@
 
 .dashboard-layout {
   display: flex; /* Sử dụng flexbox để sắp xếp sidebar và nội dung chính */
+  min-height: 100vh; /* Đảm bảo chiều cao tối thiểu của layout là 100% chiều cao màn hình */
 }
 
 .content {
   flex: 1; /* Chiếm không gian còn lại */
   padding: 20px; /* Khoảng cách cho nội dung */
   background-color: #ecf0f1; /* Màu nền cho nội dung */
-  height: 100vh; /* Chiều cao bằng chiều cao viewport */
-  overflow-y: auto; /* Cuộn dọc nếu nội dung quá dài */
+  height: 100%; 
+  overflow-y: auto; 
+  margin-right: 250px; /* Đảm bảo rằng nội dung không bị che khuất bởi sidebar */
 }
 
 /* Optional: Có thể thêm một số hiệu ứng cho nội dung chính */

@@ -1,8 +1,8 @@
 /* CategoryManagementPage.css */
 
 .category-management {
-  max-width: 800px;
-  margin: 50px auto;
+  width: calc(100% - 290px);
+  margin: 0px 0px 0px 250px;
   padding: 20px;
   background-color: #f9f9f9;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -15,7 +15,10 @@
   font-size: 2rem;
   margin-bottom: 20px;
 }
-
+.category-name{
+  font-size: 20px;
+  color: #555;
+}
 .add-category {
   display: flex;
   justify-content: space-between;

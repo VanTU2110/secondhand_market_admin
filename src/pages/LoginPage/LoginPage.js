@@ -33,7 +33,7 @@ function LoginPage() {
             },
           });
           console.log(shopResponse.data);
-          navigate('/dashboard');
+          navigate('/static');
         } catch (shopError) {
           // Kiểm tra lỗi 404 nếu shop chưa tồn tại
           if (shopError.response && shopError.response.status === 404) {

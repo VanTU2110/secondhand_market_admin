@@ -89,7 +89,7 @@ const CategoryManagementPage = () => {
   return (
     <DashboardLayout>
       <div className="category-management">
-        <h2>Category Management</h2>
+        <h2>Quản lí danh mục</h2>
         
         <div className="add-category">
           <input
@@ -128,7 +128,6 @@ const CategoryManagementPage = () => {
     <p>No categories available.</p>
   )}
 </ul>
-
       </div>
     </DashboardLayout>
   );

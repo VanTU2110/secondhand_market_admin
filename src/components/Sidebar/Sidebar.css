@@ -1,60 +1,85 @@
-
-.sidebar {
-  width: 150px; /* Độ rộng của sidebar */
-  background-color: #2c3e50; /* Màu nền */
-  color: #ecf0f1; /* Màu chữ */
-  height: 100vh; /* Chiều cao bằng chiều cao viewport */
+/* Sidebar container */
+.sidebar-container {
+  margin: 5px 0px 50px 10px;
+  width: 250px;
+  border-radius: 15px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 20px; /* Khoảng cách nội dung */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Đổ bóng cho sidebar */
-  position: fixed; /* Cố định sidebar */
-  left: 0; 
-  top: 0; 
-  z-index: 1000;
+  height: 100vh;
+  
+  
+}
+.siderbar {
+  height: 100vh;
+
+  background: linear-gradient(
+    120deg,
+    #ffcccc 30%, 
+    #ff9999 60%, 
+    #ff6666 90%
+  );
 }
 
-.sidebar-header {
-  margin-bottom: 20px; /* Khoảng cách giữa header và danh sách */
-  font-size: 24px; /* Kích thước chữ của header */
-  font-weight: bold; /* Chữ đậm */
-  text-align: center; /* Căn giữa */
+/* Mục Sidebar */
+.sidebar-item {
+  display: flex;
+
+  align-items: center;
+  padding: 10px 20px;
+  background-color: inherit;
+  color: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
 }
 
-ul {
-  list-style-type: none; /* Loại bỏ dấu đầu dòng */
-  padding: 0; /* Xóa khoảng cách padding */
+.sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  transform: translateX(10px);
+  color: #f00000;
 }
 
-li {
-  margin: 15px 0; /* Khoảng cách giữa các mục */
+/* Mục Sidebar active */
+.sidebar-item.active {
+  background-color: #ffffff;
+  color: #1976d2;
+  font-weight: bold;
+  transform: translateX(10px);
+  box-shadow: inset 5px 0 0 #1976d2;
 }
 
-li a {
-  display: flex; /* Sử dụng flexbox để căn chỉnh icon và chữ */
-  align-items: center; /* Căn giữa theo chiều dọc */
-  text-decoration: none; /* Bỏ gạch chân */
-  color: #ecf0f1; /* Màu chữ */
-  padding: 10px; /* Khoảng cách nội dung */
-  border-radius: 5px; /* Bo góc */
-  transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền */
+/* Icon */
+.sidebar-icon {
+  margin-right: 10px;
+  color: inherit;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-li a:hover {
-  background-color: #34495e; /* Màu nền khi hover */
+/* Icon active */
+.sidebar-icon.active {
+  color: #1976d2;
+
+  transform: scale(1.2) rotate(180deg); /* xoay khi active */
 }
 
-li a svg {
-  margin-right: 10px; /* Khoảng cách giữa icon và chữ */
-}
-.logout-link {
-  color: inherit; /* Kế thừa màu sắc từ các mục khác */
-  display: flex; /* Để các biểu tượng và văn bản được căn chỉnh theo chiều ngang */
-  align-items: center; /* Căn giữa theo chiều dọc */
-  padding: 10px 15px; /* Thêm khoảng cách */
-  text-decoration: none; /* Không có gạch chân */
+.sidebar-icon:hover {
+  transform: rotate(360deg);
 }
 
-.logout-link:hover {
-  background-color: #f0f0f0; /* Thay đổi màu nền khi di chuột qua */
+/* Text */
+.sidebar-item .MuiListItemText-root {
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-item:hover .MuiListItemText-root {
+  opacity: 1;
+}
+.sidebar-header h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #4caf50;
+  margin: 20px 0;
 }

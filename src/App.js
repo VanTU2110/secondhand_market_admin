@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Đảm bảo import CSS
+import 'react-toastify/dist/ReactToastify.css';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import CreateShopPage from './pages/CreateShopPage/CreateShopPage';
@@ -47,6 +47,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        limit={1}
       />
     </Router>
   );
